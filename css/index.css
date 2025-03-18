@@ -1132,3 +1132,101 @@ img {
   border-color: #bd3132;
   background-color: #bd3132;
 }
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  margin: 10px 0 0;
+}
+.pagination__prev, .pagination__next {
+  display: block;
+  width: 40px;
+  aspect-ratio: 1/1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  background: url(../assets/chevron-left.svg) center/24px no-repeat;
+}
+.pagination__prev:hover, .pagination__next:hover {
+  border: 2px solid #bd0102;
+}
+.pagination__next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.pagination__pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+.pagination__page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 40px;
+  aspect-ratio: 1/1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 148%;
+  text-align: center;
+  color: #bd0102;
+  border-radius: 10px;
+}
+.pagination__page:hover {
+  border: 2px solid #bd0102;
+}
+.pagination__page.active {
+  color: #ffffff;
+  background-color: #bd0102;
+}
+.pagination__divider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 40px;
+  aspect-ratio: 1/1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 148%;
+  text-align: center;
+  color: #313131;
+}
