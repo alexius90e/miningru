@@ -1,18 +1,37 @@
 const headerBurgerButton = document.querySelector('.header__burger-button');
+const footerBurgerButton = document.querySelector('.footer__burger-button');
 const headerNav = document.querySelector('.header__nav');
 
 if (headerBurgerButton && headerNav) {
-  headerBurgerButton.addEventListener('click', (event) => {
+  headerBurgerButton.addEventListener('click', () => {
     const isActive = headerBurgerButton.classList.contains('active');
 
     if (isActive) {
       headerBurgerButton.classList.remove('active');
+      if (footerBurgerButton) footerBurgerButton.classList.remove('active');
       headerNav.classList.remove('active');
     } else {
       headerBurgerButton.classList.add('active');
+      if (footerBurgerButton) footerBurgerButton.classList.add('active');
       headerNav.classList.add('active');
     }
   });
+
+  if (footerBurgerButton) {
+    footerBurgerButton.addEventListener('click', () => {
+      const isActive = headerBurgerButton.classList.contains('active');
+
+      if (isActive) {
+        headerBurgerButton.classList.remove('active');
+        footerBurgerButton.classList.remove('active');
+        headerNav.classList.remove('active');
+      } else {
+        headerBurgerButton.classList.add('active');
+        footerBurgerButton.classList.add('active');
+        headerNav.classList.add('active');
+      }
+    });
+  }
 }
 
 const blogPosts = document.querySelectorAll('.blog-posts__post');
@@ -34,11 +53,11 @@ blogPosts.forEach((post) => {
       if (textEl.style.maxHeight !== `${heightLimit}px`) {
         textEl.style.maxHeight = `${heightLimit}px`;
         expandEl.style.marginTop = -expandEl.scrollHeight + 'px';
-        event.target.innerText = 'Развернуть пост'
+        event.target.innerText = 'Развернуть пост';
       } else {
         textEl.style.maxHeight = textEl.scrollHeight + 'px';
         expandEl.style.marginTop = -20 + 'px';
-        event.target.innerText = 'Cвернуть пост'
+        event.target.innerText = 'Cвернуть пост';
       }
     }
   });
