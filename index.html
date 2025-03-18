@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="module" src="./js/index.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="header__logo">
+          <a class="header__logo-link" href="#">
+            <img class="header__logo-link-image" src="./assets/logo.svg" alt="logo" />
+          </a>
+        </div>
+
+        <nav class="header__nav">
+          <a class="header__nav-link active" href="#">Горячее</a>
+          <a class="header__nav-link" href="#">Лучшее</a>
+          <a class="header__nav-link" href="#">Свежее</a>
+        </nav>
+
+        <div class="header__controls">
+          <div class="header__controls-search">
+            <button class="header__controls-search-button"></button>
+          </div>
+
+          <div class="header__controls-user">
+            <div class="header__controls-user-avatar">
+              <img
+                class="header__controls-user-avatar-image"
+                src="./assets/avatar.jpg"
+                alt="avatar"
+              />
+            </div>
+
+            <div class="header__controls-user-notifications">
+              <button class="header__controls-user-notifications-button">
+                <span class="header__controls-user-notifications-button-counter">2</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="header__controls-create">
+            <button class="header__controls-create-button">
+              <span class="header__controls-create-button-text">Создать</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main"></main>
+
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+  </body>
+</html>
