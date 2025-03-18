@@ -12,6 +12,10 @@
   <body>
     <header class="header">
       <div class="header__wrapper">
+        <div class="header__burger">
+          <button class="header__burger-button"></button>
+        </div>
+
         <div class="header__logo">
           <a class="header__logo-link" href="#">
             <img class="header__logo-link-image" src="./assets/logo.svg" alt="logo" />
@@ -19,9 +23,35 @@
         </div>
 
         <nav class="header__nav">
-          <a class="header__nav-link active" href="#">Горячее</a>
-          <a class="header__nav-link" href="#">Лучшее</a>
-          <a class="header__nav-link" href="#">Свежее</a>
+          <ul class="header__nav-menu">
+            <li class="header__nav-menu-item">
+              <a class="header__nav-menu-item-link active" href="#">Горячее</a>
+            </li>
+            <li class="header__nav-menu-item">
+              <a class="header__nav-menu-item-link" href="#">Лучшее</a>
+            </li>
+            <li class="header__nav-menu-item">
+              <a class="header__nav-menu-item-link" href="#">Свежее</a>
+            </li>
+          </ul>
+
+          <ul class="header__nav-submenu">
+            <li class="header__nav-submenu-item">
+              <a class="header__nav-submenu-item-link" href="#">Помощь</a>
+            </li>
+            <li class="header__nav-submenu-item">
+              <a class="header__nav-submenu-item-link" href="#">Новости сервиса</a>
+            </li>
+            <li class="header__nav-submenu-item">
+              <a class="header__nav-submenu-item-link" href="#">Рекламодателям</a>
+            </li>
+            <li class="header__nav-submenu-item">
+              <a class="header__nav-submenu-item-link" href="#">О проекте</a>
+            </li>
+            <li class="header__nav-submenu-item">
+              <a class="header__nav-submenu-item-link" href="#">Контакты</a>
+            </li>
+          </ul>
         </nav>
 
         <div class="header__controls">

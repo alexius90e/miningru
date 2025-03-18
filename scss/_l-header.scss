@@ -1,5 +1,9 @@
 .header {
-  padding: 24px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   background-color: #fafafa;
 
   &__wrapper {
@@ -10,11 +14,94 @@
     max-width: 1392px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 24px 16px;
     box-sizing: border-box;
+
+    @include laptop {
+      gap: 10px;
+      padding: 16px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      background-color: #fafafa;
+
+      @include laptop {
+        display: block;
+      }
+    }
+  }
+
+  &__burger {
+    position: relative;
+    z-index: 100;
+    display: none;
+    flex: 0 0 auto;
+
+    @include laptop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: none;
+      border-radius: 500px;
+      background-color: rgba($color: #f5f5f5, $alpha: 1);
+      transition-property: background-color;
+      transition-timing-function: ease-in-out;
+      transition-duration: 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color: #f5f5f5, $alpha: 1);
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url(../assets/menu.svg) center / cover no-repeat;
+        transition-property: filter, opacity;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.2s;
+        opacity: 0.5;
+        filter: brightness(0%);
+      }
+
+      &:hover::before {
+        opacity: 1;
+        filter: brightness(100%);
+      }
+
+      &.active {
+        background-color: #bd0102;
+
+        &::before {
+          background-image: url(../assets/close.svg);
+          filter: brightness(100%);
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &__logo {
+    position: relative;
+    z-index: 100;
     flex: 0 0 auto;
 
     &-link {
@@ -22,11 +109,26 @@
       align-items: center;
       justify-content: center;
 
+      @include laptop {
+        position: relative;
+        height: 40px;
+        width: 40px;
+        overflow: hidden;
+      }
+
       &-image {
         display: block;
         max-width: 100%;
         width: 162px;
         height: auto;
+
+        @include laptop {
+          position: absolute;
+          left: 1px;
+          bottom: 0;
+          max-width: none;
+          width: 279px;
+        }
       }
     }
   }
@@ -34,41 +136,127 @@
   &__nav {
     flex: 0 1 538px;
 
-    &-link {
-      display: inline-block;
-      padding: 10px 30px;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 150%;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: rgba($color: #000000, $alpha: 0.6);
-      transition-property: color;
-      transition-timing-function: ease-in-out;
-      transition-duration: 0.2s;
+    @include laptop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+      max-width: 360px;
+      width: 100%;
+      padding: 94px 16px 20px;
+      box-sizing: border-box;
+      background-color: #fafafa;
+      box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.06);
+      transform: translateX(-120dvw);
+      transition: transform ease-in-out 0.4s;
+      will-change: transform;
+    }
 
-      &:hover {
-        color: rgba($color: #000000, $alpha: 1);
+    @include mobile {
+      max-width: none;
+    }
+
+    &.active {
+      @include laptop {
+        transform: translateX(0);
       }
 
-      &:active {
-        color: #bd3132;
+      
+    }
+
+    &-menu {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      @include laptop {
+        flex-direction: column;
+        margin-bottom: 20px;
       }
 
-      &.active {
-        color: #bd3132;
+      &-item {
+        &-link {
+          display: inline-block;
+          padding: 10px 30px;
+          font-weight: 700;
+          font-size: 13px;
+          line-height: 150%;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: rgba($color: #000000, $alpha: 0.6);
+          text-align: center;
+          transition-property: color;
+          transition-timing-function: ease-in-out;
+          transition-duration: 0.2s;
+
+          @include laptop {
+            min-width: 128px;
+            padding: 10px;
+          }
+
+          &:hover {
+            color: rgba($color: #000000, $alpha: 1);
+          }
+
+          &:active {
+            color: #bd3132;
+          }
+
+          &.active {
+            color: #bd3132;
+          }
+
+          &.active:hover {
+            color: #a30404;
+          }
+        }
+      }
+    }
+
+    &-submenu {
+      display: none;
+      margin: 0;
+      padding: 20px;
+      list-style-type: none;
+
+      @include laptop {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      &.active:hover {
-        color: #a30404;
+      &-item {
+        &-link {
+          display: inline-block;
+          width: 100%;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 150%;
+          text-align: center;
+          color: rgba($color: #111111, $alpha: 0.5);
+        }
       }
     }
   }
 
   &__controls {
+    position: relative;
+    z-index: 100;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 30px;
+
+    @include laptop {
+      flex: 1 1 auto;
+    }
+
+    @include mobile {
+      gap: 5px;
+    }
 
     &-search {
       flex: 0 0 auto;
@@ -82,7 +270,7 @@
         padding: 0;
         border: none;
         border-radius: 500px;
-        background-color: rgba($color: #f5f5f5, $alpha: 0.5);
+        background-color: rgba($color: #f5f5f5, $alpha: 1);
         transition-property: background-color;
         transition-timing-function: ease-in-out;
         transition-duration: 0.2s;
@@ -147,7 +335,7 @@
           padding: 0;
           border: none;
           border-radius: 500px;
-          background-color: rgba($color: #f5f5f5, $alpha: 0.5);
+          background-color: rgba($color: #f5f5f5, $alpha: 1);
           transition-property: background-color;
           transition-timing-function: ease-in-out;
           transition-duration: 0.2s;
@@ -219,6 +407,11 @@
         transition-duration: 0.2s;
         cursor: pointer;
 
+        @include mobile {
+          min-height: auto;
+          padding: 10px;
+        }
+
         &:hover {
           background-color: #bd3132;
         }
@@ -248,6 +441,10 @@
           transition-property: color;
           transition-timing-function: ease-in-out;
           transition-duration: 0.2s;
+
+          @include mobile {
+            display: none;
+          }
         }
 
         &:hover &-text {
