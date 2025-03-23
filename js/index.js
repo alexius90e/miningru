@@ -62,3 +62,73 @@ blogPosts.forEach((post) => {
     }
   });
 });
+
+////
+
+const postComments = document.querySelectorAll('.post__comments-item');
+
+postComments.forEach((comment) => {
+  const answer = comment.querySelector('.post__comments-item-answer');
+  const answerExpandBtn = answer.querySelector('.post__comments-item-answer-expand-button');
+  const answerAdd = answer.querySelector('.post__comments-item-answer-add');
+
+  if (answer && answerExpandBtn && answerAdd) {
+    function hideAnswerAdd() {
+      answer.classList.remove('active');
+    }
+
+    function showAnswerAdd() {
+      answer.classList.add('active');
+    }
+
+    function checkAnswerAdd() {
+      const isActive = answer.classList.contains('active');
+      answerAdd.style.maxHeight = `${isActive ? answerAdd.scrollHeight : 0}px`;
+      answerExpandBtn.innerText = isActive ? 'Ответить' : 'Отмена';
+    }
+
+    function updateAnswerAdd() {
+      const isActive = answer.classList.contains('active');
+      if (isActive) hideAnswerAdd();
+      if (!isActive) showAnswerAdd();
+      checkAnswerAdd();
+    }
+
+    checkAnswerAdd();
+
+    answer.addEventListener('click', (event) => {
+      const isExpandBtn = event.target === answerExpandBtn;
+      if (isExpandBtn) updateAnswerAdd();
+    });
+  }
+
+  const branch = comment.querySelector('.post__comments-item-branch');
+  const branchExpandBtn = branch.querySelector('.post__comments-item-branch-expand-button');
+  const branchContent = branch.querySelector('.post__comments-item-branch-content');
+
+  if (branch && branchExpandBtn && branchContent) {
+    function checkBranchContent() {
+      const isActive = branch.classList.contains('active');
+      const branchBtnText = branchExpandBtn.querySelector(
+        '.post__comments-item-branch-expand-button-text'
+      );
+      if (branchBtnText) branchBtnText.innerText = `${isActive ? 'Свернуть' : 'Развернуть'} ветку`;
+    }
+
+    function updateBranchContent() {
+      const isActive = branch.classList.contains('active');
+      if (isActive) branch.classList.remove('active');
+      if (!isActive) branch.classList.add('active');
+      checkBranchContent();
+    }
+
+    checkBranchContent();
+
+    branchExpandBtn.addEventListener('click', (event) => {
+      const isExpandBtn = event.target === branchExpandBtn;
+      if (isExpandBtn) {
+        updateBranchContent();
+      }
+    });
+  }
+});
