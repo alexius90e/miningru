@@ -133,24 +133,62 @@ postComments.forEach((comment) => {
   }
 });
 
-
 ////
 
 const labelPasswords = document.querySelectorAll('.label-password');
 
-labelPasswords.forEach(label => {
-  const input = label.querySelector('.label-password__input')
-  const show = label.querySelector('.label-password__show')
+labelPasswords.forEach((label) => {
+  const input = label.querySelector('.label-password__input');
+  const show = label.querySelector('.label-password__show');
 
   if (show && input) {
     show.addEventListener('mousedown', (event) => {
-      event.currentTarget.classList.add('active')
-      input.setAttribute('type', 'text')
-    })
+      event.currentTarget.classList.add('active');
+      input.setAttribute('type', 'text');
+    });
 
     show.addEventListener('mouseup', (event) => {
-      event.currentTarget.classList.remove('active')
-      input.setAttribute('type', 'password')
-    })
+      event.currentTarget.classList.remove('active');
+      input.setAttribute('type', 'password');
+    });
   }
-})
+});
+
+///
+
+const modals = {
+  login: document.querySelector('.modal-login'),
+  singup: document.querySelector('.modal-singup'),
+  thanks: document.querySelector('.modal-thanks'),
+};
+
+function openModal(modal) {
+  if (!modal) return;
+  modal.classList.add('active');
+}
+
+function closeModal(modal) {
+  if (!modal) return;
+  modal.classList.remove('active');
+}
+
+const allModals = document.querySelectorAll('.modal');
+
+allModals.forEach((modal) =>
+  modal.addEventListener('click', (event) => {
+    const isLayout = event.target === event.currentTarget;
+    const isCloseBtn = event.target.classList.contains('modal__close-button');
+    if (isLayout || isCloseBtn) closeModal(event.currentTarget);
+  })
+);
+
+const loginBtns = document.querySelectorAll('.login');
+const singupBtns = document.querySelectorAll('.singup');
+const thanksBtns = document.querySelectorAll('.thanks');
+
+loginBtns.forEach((btn) => btn.addEventListener('click', () => {
+  console.log('login');
+  openModal(modals.login)
+}));
+singupBtns.forEach((btn) => btn.addEventListener('click', () => openModal(modals.singup)));
+thanksBtns.forEach((btn) => btn.addEventListener('click', () => openModal(modals.thanks)));
