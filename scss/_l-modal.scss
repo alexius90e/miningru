@@ -28,6 +28,7 @@
     background-color: #fafafa;
     transform: translateY(-120dvh);
     transition: transform ease-in-out 0.2s;
+    will-change: transform;
 
     @include tablet {
       padding: 20px 10px;

@@ -2825,6 +2825,7 @@ img {
   transition: -webkit-transform ease-in-out 0.2s;
   transition: transform ease-in-out 0.2s;
   transition: transform ease-in-out 0.2s, -webkit-transform ease-in-out 0.2s;
+  will-change: transform;
 }
 @media (max-width: 768px) {
   .modal__body {
@@ -2948,6 +2949,18 @@ img {
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
 }
+.modal-auth__form-label_half {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(50% - 5px);
+          flex: 0 0 calc(50% - 5px);
+}
+@media (max-width: 768px) {
+  .modal-auth__form-label_half {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+}
 .modal-auth__form-label-input {
   display: inline-block;
   width: 100%;
@@ -3005,6 +3018,44 @@ img {
   border-color: #bd3132;
   background-color: #bd3132;
 }
+.modal-auth__form-disclaimer {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 150%;
+  text-align: center;
+  color: #111;
+  border: none;
+}
+.modal-auth__form-disclaimer a {
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #bd0102;
+}
+.modal-auth__form-robot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.modal-auth__form-robot-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .modal-auth__forgot-button {
   display: inline-block;
   width: 100%;
@@ -3039,7 +3090,7 @@ img {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   height: 1px;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 .modal-auth__social {
   display: -webkit-box;
