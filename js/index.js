@@ -159,7 +159,7 @@ labelPasswords.forEach((label) => {
 const modals = {
   login: document.querySelector('.modal-login'),
   singup: document.querySelector('.modal-singup'),
-  thanks: document.querySelector('.modal-thanks'),
+  deleteDraft: document.querySelector('.modal-delete-draft'),
 };
 
 function openModal(modal) {
@@ -184,11 +184,20 @@ allModals.forEach((modal) =>
 
 const loginBtns = document.querySelectorAll('.login');
 const singupBtns = document.querySelectorAll('.singup');
-const thanksBtns = document.querySelectorAll('.thanks');
+const deleteDraftBtns = document.querySelectorAll('.delete-drafts');
 
-loginBtns.forEach((btn) => btn.addEventListener('click', () => {
-  console.log('login');
-  openModal(modals.login)
-}));
+loginBtns.forEach((btn) => btn.addEventListener('click', () => openModal(modals.login)));
 singupBtns.forEach((btn) => btn.addEventListener('click', () => openModal(modals.singup)));
-thanksBtns.forEach((btn) => btn.addEventListener('click', () => openModal(modals.thanks)));
+deleteDraftBtns.forEach((btn) =>
+  btn.addEventListener('click', () => openModal(modals.deleteDraft))
+);
+
+if (modals.deleteDraft)
+  modals.deleteDraft.addEventListener('click', (event) => {
+    const isYesBtn = event.target.classList.contains('modal-delete-draft__controls-yes');
+    const isNoBtn = event.target.classList.contains('modal-delete-draft__controls-no');
+
+    if (isYesBtn || isNoBtn) {
+      closeModal(modals.deleteDraft);
+    }
+  });

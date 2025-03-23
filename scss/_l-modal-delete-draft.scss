@@ -1,0 +1,79 @@
+.modal-delete-draft {
+  & .modal__body {
+    width: 500px;
+  }
+
+  &__wrapper {
+    padding: 20px 0;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 140%;
+    text-align: center;
+    color: #111;
+
+    @include  mobile {
+      font-size: 18px;
+    }
+  }
+
+  &__description {
+    margin: 0 0 20px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #111;
+  }
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    &-yes,
+    &-no {
+      display: inline-block;
+      flex: 0 0 calc(50% - 10px / 2);
+      width: 100%;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      border-radius: 15px;
+      transition-property: background-color, color, border-color;
+      transition-timing-function: ease-in-out;
+      transition-duration: 0.2s;
+      cursor: pointer;
+
+      @include mobile {
+        flex:   1 1 100%;
+      }
+
+      &:hover {
+        color: #ffffff;
+        border-color: #bd3132;
+        background-color: #bd3132;
+      }
+    }
+
+    &-no {
+      color: #bd0102;
+      border: 2px solid #bd0102;
+      background-color: #ffffff;
+    }
+
+    &-yes {
+      color: #ffffff;
+      border: 2px solid #bd0102;
+      background-color: #bd0102;
+    }
+  }
+}
