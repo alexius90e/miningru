@@ -132,3 +132,25 @@ postComments.forEach((comment) => {
     });
   }
 });
+
+
+////
+
+const labelPasswords = document.querySelectorAll('.label-password');
+
+labelPasswords.forEach(label => {
+  const input = label.querySelector('.label-password__input')
+  const show = label.querySelector('.label-password__show')
+
+  if (show && input) {
+    show.addEventListener('mousedown', (event) => {
+      event.currentTarget.classList.add('active')
+      input.setAttribute('type', 'text')
+    })
+
+    show.addEventListener('mouseup', (event) => {
+      event.currentTarget.classList.remove('active')
+      input.setAttribute('type', 'password')
+    })
+  }
+})

@@ -1026,7 +1026,52 @@
             </div>
           </div>
 
-          <aside class="blog__sidebar"></aside>
+          <aside class="blog__sidebar">
+            <div class="auth-sidebar">
+              <div class="auth-sidebar__title">Войти</div>
+
+              <form class="auth-sidebar__form">
+                <label class="auth-sidebar__form-label">
+                  <input
+                    class="auth-sidebar__form-label-input"
+                    type="text"
+                    name="login"
+                    placeholder="Логин"
+                    required
+                  />
+                </label>
+
+                <label class="auth-sidebar__form-label label-password">
+                  <input
+                    class="auth-sidebar__form-label-input label-password__input"
+                    type="password"
+                    name="password"
+                    placeholder="Пароль"
+                    required
+                  />
+
+                  <span class="auth-sidebar__form-label-show label-password__show"></span>
+                </label>
+
+                <button class="auth-sidebar__form-button">Войти</button>
+              </form>
+
+              <div class="auth-sidebar__forgot">
+                <a class="auth-sidebar__forgot-button" href="#">Забыли пароль?</a>
+              </div>
+
+              <div class="auth-sidebar__divider">или продолжите с</div>
+
+              <div class="auth-sidebar__social">
+                <button class="auth-sidebar__social-button auth-sidebar__social-button_ya">
+                  Войти с Яндекс ID
+                </button>
+                <button class="auth-sidebar__social-button auth-sidebar__social-button_vk">
+                  Войти через VK ID
+                </button>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
     </main>
