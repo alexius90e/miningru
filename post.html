@@ -1152,14 +1152,63 @@
       </div>
     </footer>
 
-    <div class="modal modal-login active">
+    <div class="modal modal-auth modal-login active">
       <div class="modal__body">
         <div class="modal__content">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, quaerat repellat nulla aliquid repudiandae laborum consectetur, soluta voluptates rerum odio nihil quibusdam cumque dicta molestias amet ducimus velit culpa natus et eum iure accusantium! Unde, quod temporibus accusamus ipsa maxime provident debitis, nostrum, est maiores reprehenderit quia neque soluta aut. A ex, rerum pariatur non accusamus vel molestias quibusdam aspernatur corporis assumenda quod harum. Error eos, nulla ad debitis tempore ipsa reiciendis labore nostrum tempora excepturi quos et aspernatur delectus sint ratione nesciunt aliquid est libero quibusdam corrupti laudantium quae. Culpa tempore alias perferendis eaque amet excepturi hic impedit corrupti.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, quaerat repellat nulla aliquid repudiandae laborum consectetur, soluta voluptates rerum odio nihil quibusdam cumque dicta molestias amet ducimus velit culpa natus et eum iure accusantium! Unde, quod temporibus accusamus ipsa maxime provident debitis, nostrum, est maiores reprehenderit quia neque soluta aut. A ex, rerum pariatur non accusamus vel molestias quibusdam aspernatur corporis assumenda quod harum. Error eos, nulla ad debitis tempore ipsa reiciendis labore nostrum tempora excepturi quos et aspernatur delectus sint ratione nesciunt aliquid est libero quibusdam corrupti laudantium quae. Culpa tempore alias perferendis eaque amet excepturi hic impedit corrupti.
+          <div class="modal-auth__wrapper">
+            <figure class="modal-auth__figure">
+              <img class="modal-auth__figure-image" src="./assets/modal-auth-bg.svg" alt="" />
+            </figure>
+
+            <div class="modal-auth__content">
+              <div class="modal-auth__title">Войти</div>
+
+              <div class="modal-auth__description">
+                Для доступа в ваш личный кабинет введите логин и пароль указанные при регистрации,
+                или продолжите с помощью ID социальных сетей:
+              </div>
+
+              <form class="modal-auth__form">
+                <label class="modal-auth__form-label">
+                  <input
+                    class="modal-auth__form-label-input"
+                    type="text"
+                    name="login"
+                    placeholder="Логин"
+                    required
+                  />
+                </label>
+
+                <label class="modal-auth__form-label label-password">
+                  <input
+                    class="modal-auth__form-label-input label-password__input"
+                    type="password"
+                    name="password"
+                    placeholder="Пароль"
+                    required
+                  />
+
+                  <span class="modal-auth__form-label-show label-password__show"></span>
+                </label>
+
+                <button class="modal-auth__form-button">Войти</button>
+              </form>
+
+              <div class="modal-auth__forgot">
+                <a class="modal-auth__forgot-button" href="#">Забыли пароль?</a>
+              </div>
+
+              <div class="modal-auth__divider">или продолжите с</div>
+
+              <div class="modal-auth__social">
+                <button class="modal-auth__social-button modal-auth__social-button_ya">
+                  Войти с Яндекс ID
+                </button>
+                <button class="modal-auth__social-button modal-auth__social-button_vk">
+                  Войти через VK ID
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -142,12 +142,12 @@ labelPasswords.forEach((label) => {
   const show = label.querySelector('.label-password__show');
 
   if (show && input) {
-    show.addEventListener('mousedown', (event) => {
+    show.addEventListener('pointerdown', (event) => {
       event.currentTarget.classList.add('active');
       input.setAttribute('type', 'text');
     });
 
-    show.addEventListener('mouseup', (event) => {
+    show.addEventListener('pointerup', (event) => {
       event.currentTarget.classList.remove('active');
       input.setAttribute('type', 'password');
     });

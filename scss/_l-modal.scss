@@ -36,7 +36,6 @@
 
   &.active &__body {
     transform: translateY(0dvh);
-
   }
 
   &__content {
@@ -53,13 +52,24 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 20px;
       width: 20px;
+      padding: 0;
       border: none;
-      background: url(../assets/close.svg) center / cover no-repeat;
-      filter: brightness(0);
+      background-color: #fafafa;
       cursor: pointer;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(../assets/close.svg) center / cover no-repeat;
+        filter: brightness(0);
+      }
     }
   }
 }
